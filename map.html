@@ -1,0 +1,180 @@
+
+    <!-- var locations = [
+        ["First location near guardhouse", 7.9473004, 123.5876167],
+        ["Second location near main building right side", 7.9480162, 123.5881823],
+        ["3rd location behind main hall", 7.947642, 123.588116],
+        ["4th location near Akasya tree", 7.948238, 123.588524],
+        ["4th.2 location near Akasya tree", 7.948155, 123.588694],
+        ["5th location front yard Oasis", 7.948031, 123.588962],
+        ["6th location behind Crim building", 7.947618, 123.588354],
+        ["7th location Agri place", 7.947252, 123.588273],
+        ["8th location Agri place behind Farmers Hall", 7.946968, 123.588153],
+        ["9th location near ROTC office", 7.946234, 123.587125],
+        ["10th location Pundol basketball court", 7.945608, 123.587641],
+        ["11th location near ROTC office", 7.946194, 123.586955]
+    ]; -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map with Leaflet.js and Image Carousel</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Initialize the map and set its view to the first location
+    var map = L.map('map').setView([7.9473004, 123.5876167], 18);
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    // Custom icon for markers
+    var customIcon = L.icon({
+        iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png', // Example icon URL
+        iconSize: [32, 32], // Size of the icon
+        iconAnchor: [16, 32], // Point of the icon which will correspond to marker's location
+        popupAnchor: [0, -32] // Point from which the popup should open relative to the iconAnchor
+    });
+    // Array of locations with names and images
+    var locations = [
+        {
+            name: "First location near guardhouse",
+            lat: 7.9473004,
+            lon: 123.5876167,
+            images: ["campus_pics/1st_loc/img (1).jpg", "campus_pics/1st_loc/img (2).jpg", "campus_pics/1st_loc/img (3).jpg"]
+        },
+        {
+            name: "Second location near main building right side",
+            lat: 7.9480162,
+            lon: 123.5881823,
+            images: ["campus_pics/2nd_loc/img (1).jpg", "campus_pics/2nd_loc/img (2).jpg", "campus_pics/2nd_loc/img (3).jpg"]
+        },
+        {
+            name: "3rd location behind main hall",
+            lat: 7.947642,
+            lon: 123.588116,
+            images: ["campus_pics/3rd_loc/img (1).jpg", "campus_pics/3rd_loc/img (2).jpg", "campus_pics/3rd_loc/img (3).jpg"]
+        },
+        {
+            name: "4th location near Akasya tree (left)",
+            lat: 7.948238,
+            lon: 123.588524,
+            images: ["campus_pics/4th_loc/img (1).jpg", "campus_pics/4th_loc/img (2).jpg", "campus_pics/4th_loc/img (3).jpg"]
+        },
+        {
+            name: "5th location near Akasya tree (right)",
+            lat: 7.948155,
+            lon: 123.588694,
+            images: ["campus_pics/5th_loc/img (1).jpg", "campus_pics/5th_loc/img (2).jpg", "campus_pics/5th_loc/img (3).jpg"]
+        },
+        {
+        
+            name: "6th location front yard Oasis",
+            lat: 7.948031,
+            lon:123.588962,
+            images: ["campus_pics/6th_loc/img (1).jpg", "campus_pics/6th_loc/img (2).jpg", "campus_pics/6th_loc/img (3).jpg"]
+        },
+        {
+            name: "7th location behind Crim building",
+            lat: 7.947618,
+            lon: 123.588354,
+            images: ["campus_pics/7th_loc/img (1).jpg", "campus_pics/7th_loc/img (2).jpg", "campus_pics/7th_loc/img (3).jpg"]
+        },
+        {
+            name: "8th location Agri place",
+            lat: 7.947252,
+            lon: 123.588273,
+            images: ["campus_pics/8th_loc/img (1).jpg", "campus_pics/8th_loc/img (2).jpg", "campus_pics/8th_loc/img (3).jpg"]
+        },
+        {
+            name: "9th location Agri place behind Farmers Hall",
+            lat: 7.946968,
+            lon: 123.588153,
+            images: ["campus_pics/9th_loc/img (1).jpg", "campus_pics/9th_loc/img (2).jpg", "campus_pics/9th_loc/img (3).jpg"]
+        },
+        {
+            name:"10th location near ROTC office",
+            lat: 7.946234,
+            lon: 123.587125,
+            images: ["campus_pics/10th_loc/img (1).jpg", "campus_pics/10th_loc/img (2).jpg"]
+        },
+        {
+            name: "11th location Pundol basketball court",
+            lat: 7.945608,
+            lon: 123.587641,
+            images: ["campus_pics/11th_loc/img (1).jpg", "campus_pics/11th_loc/img (2).jpg"]
+        },
+        {
+            name: "12th location near ROTC office",
+            lat: 7.946194,
+            lon: 123.586955,
+            images: ["campus_pics/12th_loc/img (1).jpg", "campus_pics/12th_loc/img (2).jpg", "campus_pics/12th_loc/img (3).jpg"]
+        }
+        // Add other locations similarly...
+    ];
+
+    // Loop through the locations and add a marker for each
+    locations.forEach(function(location, index) {
+        // Create the carousel HTML for the popup
+        var carouselId = "carousel" + index;
+        var carouselIndicators = location.images.map((_, i) => 
+            `<button type="button" data-bs-target="#${carouselId}" data-bs-slide-to="${i}" class="${i === 0 ? 'active' : ''}" aria-current="${i === 0 ? 'true' : ''}" aria-label="Slide ${i + 1}"></button>`
+        ).join('');
+        
+        var carouselItems = location.images.map((img, i) => 
+            `<div class="carousel-item ${i === 0 ? 'active' : ''}">
+                <img src="${img}" alt="Image ${i + 1}">
+            </div>`
+        ).join('');
+
+        var carouselHTML = `
+            <div id="${carouselId}" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    ${carouselIndicators}
+                </div>
+                <div class="carousel-inner">
+                    ${carouselItems}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#${carouselId}" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#${carouselId}" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        `;
+
+        // Create the marker and bind the popup
+        L.marker([location.lat, location.lon], { icon: customIcon })
+            .addTo(map)
+            .bindPopup(`<strong>${location.name}</strong><br>${carouselHTML}`);
+    });
+</script>
+
+</body>
+</html>
+
