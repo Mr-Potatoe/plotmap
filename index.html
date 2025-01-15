@@ -1,19 +1,3 @@
-
-    <!-- var locations = [
-        ["First location near guardhouse", 7.9473004, 123.5876167],
-        ["Second location near main building right side", 7.9480162, 123.5881823],
-        ["3rd location behind main hall", 7.947642, 123.588116],
-        ["4th location near Akasya tree", 7.948238, 123.588524],
-        ["4th.2 location near Akasya tree", 7.948155, 123.588694],
-        ["5th location front yard Oasis", 7.948031, 123.588962],
-        ["6th location behind Crim building", 7.947618, 123.588354],
-        ["7th location Agri place", 7.947252, 123.588273],
-        ["8th location Agri place behind Farmers Hall", 7.946968, 123.588153],
-        ["9th location near ROTC office", 7.946234, 123.587125],
-        ["10th location Pundol basketball court", 7.945608, 123.587641],
-        ["11th location near ROTC office", 7.946194, 123.586955]
-    ]; -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,10 +30,10 @@
     // Initialize the map and set its view to the first location
     var map = L.map('map').setView([7.9473004, 123.5876167], 18);
     // Add OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; OpenStreetMap contributors'
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, USGS, NOAA',
     }).addTo(map);
+    
     // Custom icon for markers
     var customIcon = L.icon({
         iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png', // Example icon URL
@@ -67,8 +51,8 @@
         },
         {
             name: "Second location near main building right side",
-            lat: 7.9480162,
-            lon: 123.5881823,
+            lat: 7.948009,
+            lon: 123.588355,
             images: ["campus_pics/2nd_loc/img (1).jpg", "campus_pics/2nd_loc/img (2).jpg", "campus_pics/2nd_loc/img (3).jpg"]
         },
         {
@@ -76,25 +60,6 @@
             lat: 7.947642,
             lon: 123.588116,
             images: ["campus_pics/3rd_loc/img (1).jpg", "campus_pics/3rd_loc/img (2).jpg", "campus_pics/3rd_loc/img (3).jpg"]
-        },
-        {
-            name: "4th location near Akasya tree (left)",
-            lat: 7.948238,
-            lon: 123.588524,
-            images: ["campus_pics/4th_loc/img (1).jpg", "campus_pics/4th_loc/img (2).jpg", "campus_pics/4th_loc/img (3).jpg"]
-        },
-        {
-            name: "5th location near Akasya tree (right)",
-            lat: 7.948155,
-            lon: 123.588694,
-            images: ["campus_pics/5th_loc/img (1).jpg", "campus_pics/5th_loc/img (2).jpg", "campus_pics/5th_loc/img (3).jpg"]
-        },
-        {
-        
-            name: "6th location front yard Oasis",
-            lat: 7.948031,
-            lon:123.588962,
-            images: ["campus_pics/6th_loc/img (1).jpg", "campus_pics/6th_loc/img (2).jpg", "campus_pics/6th_loc/img (3).jpg"]
         },
         {
             name: "7th location behind Crim building",
@@ -127,23 +92,30 @@
             images: ["campus_pics/11th_loc/img (1).jpg", "campus_pics/11th_loc/img (2).jpg"]
         },
         {
-            name: "12th location near ROTC office",
-            lat: 7.946194,
-            lon: 123.586955,
-            images: ["campus_pics/12th_loc/img (1).jpg", "campus_pics/12th_loc/img (2).jpg", "campus_pics/12th_loc/img (3).jpg"]
-        },
-        {
             name: "13th location IS Building front", 
-            lat: 7.947062,
-            lon: 123.587546,
+            lat: 7.9470605,
+            lon: 123.5874736,
             images: ["campus_pics/12th_loc/img (1).jpg", "campus_pics/12th_loc/img (2).jpg", "campus_pics/12th_loc/img (3).jpg"]
         },
         {
             name: "14th location Main Building front", 
-            lat: 7.9477026518461695, 
-            lon:   123.5877995427918 ,
+            lat: 7.947903, 
+            lon:   123.587819,
             images: ["campus_pics/12th_loc/img (1).jpg", "campus_pics/12th_loc/img (2).jpg", "campus_pics/12th_loc/img (3).jpg"]
-        }
+        },
+
+        {
+            name: "15th location IS Building back", 
+            lat: 7.946907, 
+            lon:   123.587755,
+            images: ["campus_pics/12th_loc/img (1).jpg", "campus_pics/12th_loc/img (2).jpg", "campus_pics/12th_loc/img (3).jpg"]
+        },
+        {
+            name: "16th location agri crop field", 
+            lat: 7.946676, 
+            lon:   123.588197,
+            images: ["campus_pics/12th_loc/img (1).jpg", "campus_pics/12th_loc/img (2).jpg", "campus_pics/12th_loc/img (3).jpg"]
+        },
 
         // Add other locations similarly...
     ];
